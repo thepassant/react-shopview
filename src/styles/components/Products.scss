@@ -1,5 +1,5 @@
-@import '../variables';
-@import '../mixins';
+@use '../variables' as *;
+@use '../mixins' as *;
 
 .products-container {
   max-width: 1400px;
@@ -35,5 +35,6 @@
   color: $text-secondary;
   font-size: $font-size-lg;
 }
+
 
 

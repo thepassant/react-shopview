@@ -1,5 +1,5 @@
-@import "../variables";
-@import "../mixins";
+@use "../variables" as *;
+@use "../mixins" as *;
 
 .header {
   height: $header-height;
@@ -61,4 +61,5 @@
     text-align: center;
   }
 }
+
 

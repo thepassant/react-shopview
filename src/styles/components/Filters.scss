@@ -1,5 +1,6 @@
-@import "../variables";
-@import "../mixins";
+@use "../variables" as *;
+@use "../mixins" as *;
+@use "sass:color";
 
 .filters-container {
   background-color: $bg-primary;
@@ -78,8 +79,9 @@
     }
 
     &:hover:not(:disabled) {
-      background-color: darken($secondary-color, 10%);
+      background-color: color.scale($secondary-color, $lightness: -10%);
     }
   }
 }
+
 

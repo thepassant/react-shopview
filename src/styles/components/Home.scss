@@ -1,5 +1,5 @@
-@import '../variables';
-@import '../mixins';
+@use '../variables' as *;
+@use '../mixins' as *;
 
 .home-container {
   @include flex-center;
@@ -23,5 +23,6 @@
     line-height: 1.8;
   }
 }
+
 
 
