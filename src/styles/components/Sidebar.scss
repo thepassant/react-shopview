@@ -1,0 +1,129 @@
+@import "../variables";
+@import "../mixins";
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: $sidebar-width;
+  height: 100vh;
+  background-color: $bg-sidebar;
+  color: $text-light;
+  @include flex-column;
+  z-index: 1000;
+  box-shadow: $shadow-md;
+  overflow-y: auto;
+
+  @include mobile {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    transition: left $transition-base;
+    width: 80%;
+    max-width: 300px;
+    box-shadow: $shadow-lg;
+
+    &.open {
+      left: 0;
+    }
+  }
+}
+
+// Mobile overlay when sidebar is open
+@include mobile {
+  .sidebar.open::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+}
+
+.sidebar-header {
+  padding: $spacing-lg;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  @include mobile {
+    padding: $spacing-md;
+  }
+
+  h2 {
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-sm;
+
+    @include mobile {
+      font-size: $font-size-lg;
+    }
+  }
+
+  .user-info {
+    font-size: $font-size-sm;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: $spacing-xs;
+
+    @include mobile {
+      font-size: $font-size-xs;
+    }
+  }
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: $spacing-md 0;
+
+  a {
+    display: block;
+    padding: $spacing-md $spacing-lg;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all $transition-fast;
+    border-left: 3px solid transparent;
+
+    @include mobile {
+      padding: $spacing-sm $spacing-md;
+      font-size: $font-size-sm;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: $text-light;
+    }
+
+    &.active {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: $text-light;
+      border-left-color: $primary-color;
+      font-weight: 600;
+    }
+  }
+}
+
+.sidebar-footer {
+  padding: $spacing-lg;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  @include mobile {
+    padding: $spacing-md;
+  }
+
+  .logout-button {
+    @include button-base;
+    width: 100%;
+    background-color: $danger-color;
+    color: $text-light;
+
+    @include mobile {
+      font-size: $font-size-sm;
+      padding: $spacing-sm $spacing-md;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: darken($danger-color, 10%);
+    }
+  }
+}
+

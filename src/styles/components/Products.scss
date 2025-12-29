@@ -1,0 +1,39 @@
+@import '../variables';
+@import '../mixins';
+
+.products-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.products-info {
+  margin: $spacing-lg 0;
+  color: $text-secondary;
+  font-size: $font-size-sm;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.no-products {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: $spacing-xxl;
+  color: $text-secondary;
+  font-size: $font-size-lg;
+}
+
+

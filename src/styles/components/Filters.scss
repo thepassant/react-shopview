@@ -1,0 +1,85 @@
+@import "../variables";
+@import "../mixins";
+
+.filters-container {
+  background-color: $bg-primary;
+  border-radius: $border-radius;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-lg;
+  box-shadow: $shadow-sm;
+
+  @include mobile {
+    padding: $spacing-md;
+    margin-bottom: $spacing-md;
+  }
+
+  h2 {
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-lg;
+    color: $text-primary;
+
+    @include mobile {
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-md;
+    }
+  }
+}
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $spacing-md;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-sm;
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.filter-group {
+  @include flex-column;
+  gap: $spacing-sm;
+
+  label {
+    font-weight: 500;
+    color: $text-primary;
+    font-size: $font-size-sm;
+
+    @include mobile {
+      font-size: 0.75rem;
+    }
+  }
+
+  input,
+  select {
+    @include input-base;
+    width: 100%;
+
+    @include mobile {
+      font-size: $font-size-sm;
+      padding: $spacing-xs $spacing-sm;
+    }
+  }
+
+  .reset-button {
+    @include button-base;
+    background-color: $secondary-color;
+    color: $text-light;
+    margin-top: $spacing-md;
+
+    @include mobile {
+      margin-top: $spacing-sm;
+      font-size: $font-size-sm;
+      padding: $spacing-xs $spacing-sm;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: darken($secondary-color, 10%);
+    }
+  }
+}
+

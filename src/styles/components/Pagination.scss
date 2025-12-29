@@ -1,0 +1,80 @@
+@import '../variables';
+@import '../mixins';
+
+.pagination {
+  @include flex-center;
+  gap: $spacing-sm;
+  margin-top: $spacing-xl;
+  padding: $spacing-lg 0;
+
+  @include mobile {
+    flex-wrap: wrap;
+    gap: $spacing-xs;
+  }
+}
+
+.pagination-button {
+  @include button-base;
+  background-color: $bg-primary;
+  color: $text-primary;
+  border: 1px solid $border-color;
+  min-width: 100px;
+
+  &:hover:not(:disabled) {
+    background-color: $bg-secondary;
+    border-color: $primary-color;
+    color: $primary-color;
+  }
+
+  @include mobile {
+    min-width: 80px;
+    font-size: $font-size-sm;
+    padding: $spacing-xs $spacing-sm;
+  }
+}
+
+.pagination-numbers {
+  @include flex-center;
+  gap: $spacing-xs;
+  flex-wrap: wrap;
+}
+
+.pagination-number {
+  @include button-base;
+  min-width: 40px;
+  height: 40px;
+  background-color: $bg-primary;
+  color: $text-primary;
+  border: 1px solid $border-color;
+
+  &:hover:not(:disabled) {
+    background-color: $bg-secondary;
+    border-color: $primary-color;
+    color: $primary-color;
+  }
+
+  &.active {
+    background-color: $primary-color;
+    color: $text-light;
+    border-color: $primary-color;
+    font-weight: 600;
+
+    &:hover {
+      background-color: $primary-hover;
+    }
+  }
+
+  @include mobile {
+    min-width: 35px;
+    height: 35px;
+    font-size: $font-size-sm;
+  }
+}
+
+.pagination-ellipsis {
+  padding: $spacing-sm;
+  color: $text-secondary;
+  user-select: none;
+}
+
+
